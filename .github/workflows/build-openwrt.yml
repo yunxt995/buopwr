@@ -7,7 +7,7 @@ on:
     - cron: 0 16 * * 5
 
 env:
-  REPO_URL: [https://github.com/coolsnowwolf/lede](https://github.com/coolsnowwolf/lede)
+  REPO_URL: https://github.com/coolsnowwolf/lede
   REPO_BRANCH: master
   FEEDS_CONF: feeds.conf.default
   DIY_P1_SH: diy-z1.sh
@@ -28,6 +28,7 @@ jobs:
       run: |
         sudo rm -rf /etc/apt/sources.list.d/* /usr/share/dotnet /usr/local/lib/android /opt/ghc
         sudo -E apt-get -qq update
+        sudo -E apt-get -qq install $(curl -fsSL git.io/depends-ubuntu-2204)
         sudo -E apt-get -qq install $(curl -fsSL git.io/depends-ubuntu-2204)
         sudo -E apt-get -qq autoremove --purge
         sudo -E apt-get -qq clean
@@ -178,4 +179,3 @@ jobs:
           ARM (Amlogic) 自动构建固件
           支持机型: s905d, s912, s905x3-hk1
           包含插件: Netdata, Argon, PassWall, HomeProxy, OpenClash, Lucky, Docker, UDPXY
-
