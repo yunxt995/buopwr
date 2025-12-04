@@ -3,12 +3,11 @@ name: Build OpenWrt Weekly
 on:
   repository_dispatch:
   workflow_dispatch:
-
   schedule:
     - cron: 0 16 * * 5
 
 env:
-  REPO_URL: [https://github.com/coolsnowwolf/lede](https://github.com/coolsnowwolf/lede)
+  REPO_URL: https://github.com/coolsnowwolf/lede
   REPO_BRANCH: master
   FEEDS_CONF: feeds.conf.default
   DIY_P1_SH: diy-z1.sh
